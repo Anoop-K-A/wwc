@@ -15,7 +15,7 @@ class HomeCard extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
           horizontal: 18.0, vertical: 5.0),
       child: Container(
-        color: Color.fromARGB(235, 90, 211, 227),
+        color: const Color.fromARGB(235, 90, 211, 227),
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
               horizontal: 18.0, vertical: 18.0),
