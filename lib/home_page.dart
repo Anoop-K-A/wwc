@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:work_wave_connect/home_variable.dart';
 import 'package:work_wave_connect/home_card.dart';
+import 'package:work_wave_connect/workers_details.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,26 +17,29 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "Choose\n        You'er worker",
-                    style: TextStyle(fontSize: 30),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                        hintText: 'Search',
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color.fromRGBO(251, 6, 6, 1),
-                            ),
-                            borderRadius: BorderRadius.horizontal(
-                                left: Radius.circular(50)))),
+                      hintText: 'Search',
+                      prefixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color.fromRGBO(251, 6, 6, 1),
+                        ),
+                        borderRadius: BorderRadius.horizontal(
+                          left: Radius.circular(50),
+                        ),
+                      ),
+                    ),
                   ),
                 )
               ],
@@ -45,14 +49,35 @@ class _HomePageState extends State<HomePage> {
               itemCount: works.length,
               itemBuilder: (context, index) {
                 final work = works[index];
-                return HomeCard(
-                  image: work['imageUrl'] as String,
-                  title: work['title'] as String,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return WorkersDetails(work: work);
+                      }),
+                    );
+                  },
+                  child: HomeCard(
+                    image: work['imageUrl'] as String,
+                    title: work['title'] as String,
+                  ),
                 );
               },
             )),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.contact_page),
+            label: '',
+          ),
+        ],
       ),
     );
   }

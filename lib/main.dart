@@ -13,12 +13,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'WWC',
       theme: ThemeData(
-          fontFamily: 'Oswald',
-          textTheme: const TextTheme(
-              titleMedium: TextStyle(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(235, 90, 211, 227),
+        ),
+        fontFamily: 'Oswald',
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontSize: 20,
+            color: Color.fromARGB(255, 253, 248, 248),
+          ),
+        ),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 30,
+          ),
+          titleMedium: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
-          ))),
+          ),
+        ),
+        useMaterial3: true,
+      ),
       home: const HomePage(),
     );
   }
