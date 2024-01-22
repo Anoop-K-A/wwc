@@ -45,25 +45,26 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Expanded(
-                child: ListView.builder(
-              itemCount: works.length,
-              itemBuilder: (context, index) {
-                final work = works[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) {
-                        return WorkersDetails(work: work);
-                      }),
-                    );
-                  },
-                  child: HomeCard(
-                    image: work['imageUrl'] as String,
-                    title: work['title'] as String,
-                  ),
-                );
-              },
-            )),
+              child: ListView.builder(
+                itemCount: works.length,
+                itemBuilder: (context, index) {
+                  final work = works[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) {
+                          return WorkersDetails(work: work);
+                        }),
+                      );
+                    },
+                    child: HomeCard(
+                      image: work['imageUrl'] as String,
+                      title: work['title'] as String,
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

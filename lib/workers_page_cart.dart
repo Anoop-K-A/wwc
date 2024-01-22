@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HomeCard extends StatelessWidget {
+class WorkerCart extends StatelessWidget {
   final String title;
   final String image;
-  const HomeCard({
+  const WorkerCart({
     super.key,
     required this.title,
     required this.image,
@@ -28,13 +28,22 @@ class HomeCard extends StatelessWidget {
               horizontal: 18.0, vertical: 18.0),
           child: Column(
             children: [
-              Image(
-                image: AssetImage(image),
-                height: 300,
-              ),
-              Text(title, style: Theme.of(context).textTheme.titleMedium),
-              const SizedBox(
-                height: 10,
+              Row(
+                children: [
+                  Image(
+                    image: AssetImage(image),
+                    height: 85,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(title,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodySmall),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
             ],
           ),
