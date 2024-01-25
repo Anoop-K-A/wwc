@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class WorkerCart extends StatelessWidget {
   final String discription;
+  final String place;
   final String name;
   final String profile;
   const WorkerCart({
@@ -9,6 +10,7 @@ class WorkerCart extends StatelessWidget {
     required this.discription,
     required this.profile,
     required this.name,
+    required this.place,
   });
 
   @override
@@ -26,35 +28,36 @@ class WorkerCart extends StatelessWidget {
               horizontal: 18.0, vertical: 18.0),
           child: Column(
             children: [
-              Column(
+              Text(
+                name,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+              Row(
                 children: [
-                  Row(
-                    children: [
-                      Image(
-                        image: profile.isEmpty
-                            ? const AssetImage('assets/images/proicon.png')
-                            : AssetImage(profile),
-                        height: 85,
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
+                  Image(
+                    image: profile.isEmpty
+                        ? const AssetImage('assets/images/proicon.png')
+                        : AssetImage(profile),
+                    height: 85,
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Text(
                             discription,
                             style: Theme.of(context).textTheme.bodySmall,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
-                        ),
+                          Text(
+                            'place:$place',
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                    ],
-                  ),
-                  Text(
-                    name,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    ),
                   ),
                 ],
               ),

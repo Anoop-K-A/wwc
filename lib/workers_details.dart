@@ -49,6 +49,7 @@ class WorkersDetails extends StatelessWidget {
                           profile: work['userImage'] as String,
                           discription: work['discription'] as String,
                           name: work['name'] as String,
+                          place: work['place'] as String,
                         )
                       : Container(),
                 );
