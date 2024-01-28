@@ -54,9 +54,9 @@ class WorkerCart extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
-                              textAlign: TextAlign.left,
+                              textAlign: TextAlign.center,
                               'place:$place',
-                              style: Theme.of(context).textTheme.bodySmall,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ],
                         ),

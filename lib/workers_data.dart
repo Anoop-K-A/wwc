@@ -8,7 +8,7 @@ final workersdata = [
     'place': 'thali',
     'userImage': '',
   },
-    {
+  {
     'id': '1',
     'title': 'Electrician\'s',
     'discription':
@@ -44,5 +44,4 @@ final workersdata = [
     'place': 'Thrissur',
     'userImage': '',
   },
-
 ];
