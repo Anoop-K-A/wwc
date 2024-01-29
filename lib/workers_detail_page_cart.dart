@@ -28,10 +28,6 @@ class WorkerCart extends StatelessWidget {
               horizontal: 18.0, vertical: 18.0),
           child: Column(
             children: [
-              Text(
-                name,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
               Row(
                 children: [
                   Image(
@@ -41,25 +37,27 @@ class WorkerCart extends StatelessWidget {
                     height: 90,
                   ),
                   Expanded(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          children: [
-                            Text(
-                              discription,
-                              style: Theme.of(context).textTheme.bodySmall,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Text(
-                              textAlign: TextAlign.center,
-                              'place:$place',
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            name,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                          Text(
+                            discription,
+                            style: Theme.of(context).textTheme.bodySmall,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            textAlign: TextAlign.center,
+                            'place:$place',
+                            style: Theme.of(context).textTheme.bodyMedium,
+                          ),
+                        ],
                       ),
                     ),
                   ),

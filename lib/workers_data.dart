@@ -3,7 +3,7 @@ final workersdata = [
     'id': '0',
     'title': 'Carpenter\'s',
     'discription':
-        'jnakj aj ddjk f kj fjkfn j fnk b  gj nkkb kjjssddfdf hh gdshgb jfgh  gh ahbbfkbfnbf',
+        'a worker worker  was in thew go to mu]y hose is hins inn kk was was   nnnsas ennu ninde moytheen kandu njan kannane karmukilvarnandee cundill',
     'name': 'pranav manikandan opf ',
     'place': 'thali',
     'userImage': '',
@@ -12,7 +12,7 @@ final workersdata = [
     'id': '1',
     'title': 'Electrician\'s',
     'discription':
-        'jnakj aj ddjk f kj fjkfn j fnk b  gj nkkb kjjssddfdf hh gdshgb jfgh  gh ahbbfkbfnbf',
+        'a worker worker  was in thew go to mu]y hose is hins inn kk was was   nnnsas ennu ninde moytheen kandu njan kannane karmukilvarnandee cundill',
     'name': ' Akash u  ',
     'place': 'nellyvaay',
     'userImage': '',
@@ -21,7 +21,7 @@ final workersdata = [
     'id': '2',
     'title': 'Plumber\'s',
     'discription':
-        'jnakj aj ddjk f kj fjkfn j fnk b  gj nkkb kjjssddfdf hh gdshgb jfgh  gh ahbbfkbfnbf',
+        'a worker worker  was in thew go to mu]y hose is hins inn kk was was   nnnsas ennu ninde moytheen kandu njan kannane karmukilvarnandee cundill',
     'name': 'Anoop k a   ',
     'place': 'parlikaad',
     'userImage': '',
@@ -30,7 +30,7 @@ final workersdata = [
     'id': '3',
     'title': 'Cleaner\'s',
     'discription':
-        'jnakj aj ddjk f kj fjkfn j fnk b  gj nkkb kjjssddfdf hh gdshgb jfgh  gh ahbbfkbfnbf',
+        'a worker worker  was in thew go to mu]y hose is hins inn kk was was   nnnsas ennu ninde moytheen kandu njan kannane karmukilvarnandee cundill',
     'name': 'Arjun aravindan   ',
     'place': 'nenmara',
     'userImage': '',
@@ -39,7 +39,7 @@ final workersdata = [
     'id': '4',
     'title': 'Carpenter\'s',
     'discription':
-        'jnakj aj ddjk f kj fjkfn j fnk b  gj nkkb kjjssddfdf hh gdshgb jfgh  gh ahbbfkbfnbf',
+        'a worker worker  was in thew go to mu]y hose is hins inn kk was was   nnnsas ennu ninde moytheen kandu njan kannane karmukilvarnandee cundill',
     'name': 'Anathakrishana   ',
     'place': 'Thrissur',
     'userImage': '',
