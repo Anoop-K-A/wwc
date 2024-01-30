@@ -40,13 +40,15 @@ class WorkersDetails extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) {
-                        return PersonDetails(workersdata: work);
+                        return PersonDetails(
+                          profileDetails: work,
+                        );
                       }),
                     );
                   },
                   child: worker['title'] == work['title']
                       ? WorkerCart(
-                          profile: work['userImage'] as String,
+                          profile: work['workerImage'] as String,
                           discription: work['discription'] as String,
                           name: work['name'] as String,
                           place: (work['place'] as String),
