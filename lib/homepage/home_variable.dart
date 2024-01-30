@@ -17,6 +17,6 @@ final works = [
   {
     'id': '3',
     'title': 'Cleaner\'s',
-    'imageUrl': 'assets/images/clean.png',
+    'imageUrl': 'assets/images/cleaner.png',
   },
 ];
