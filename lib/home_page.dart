@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:work_wave_connect/about_us.dart';
+//import 'package:work_wave_connect/about_us.dart';
 import 'package:work_wave_connect/profile_page.dart';
 import 'package:work_wave_connect/homepage/work_page.dart';
 
@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
-  List<Widget> pages = const [WorkPage(), AboutUs(), ProfilePage()];
+  List<Widget> pages = const [WorkPage(), ProfilePage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +33,15 @@ class _HomePageState extends State<HomePage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: '',
+            label: 'home',
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.contact_page),
+          //   label: '',
+          // ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.contact_page),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: '',
+            icon: Icon(Icons.person_2_sharp),
+            label: 'profile',
           ),
         ],
       ),
