@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:work_wave_connect/login_page.dart';
+import 'package:work_wave_connect/signup_page.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -54,7 +55,12 @@ class Welcome extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const SignupScreen();
+                      }));
+                    },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0)),

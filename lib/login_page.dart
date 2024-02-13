@@ -30,22 +30,49 @@ class LoginScreen extends StatelessWidget {
                       children: [
                         TextFormField(
                           decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.email_outlined),
+                            prefixIcon: Icon(Icons.email),
                             labelText: 'Email',
+                            floatingLabelStyle: TextStyle(color: Colors.black),
                             hintText: 'Email',
+                            hintStyle: TextStyle(fontSize: 15),
                             border: OutlineInputBorder(),
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2.0, color: Colors.black),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
                           obscureText: true,
                           decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.fingerprint_outlined),
+                            prefixIcon: Icon(
+                              Icons.key_rounded,
+                              color: Colors.black,
+                            ),
                             labelText: 'Password',
+                            floatingLabelStyle: TextStyle(color: Colors.black),
                             hintText: 'Password',
+                            hintStyle: TextStyle(
+                              fontSize: 15,
+                            ),
                             border: OutlineInputBorder(),
                             suffixIcon: IconButton(
-                                onPressed: null, icon: Icon(Icons.visibility)),
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.visibility,
+                                  color: Colors.black,
+                                )),
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(width: 2.0, color: Colors.black),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 3),
@@ -53,7 +80,10 @@ class LoginScreen extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: TextButton(
                               onPressed: () {},
-                              child: const Text('Forget Password?')),
+                              child: const Text(
+                                'Forget Password?',
+                                style: TextStyle(color: Colors.lightBlueAccent),
+                              )),
                         ),
                         SizedBox(
                           width: double.infinity,
@@ -105,7 +135,7 @@ class LoginScreen extends StatelessWidget {
                             TextSpan(
                               text: ' Signup',
                               style: TextStyle(
-                                color: Colors.purple,
+                                color: Colors.lightBlueAccent,
                               ),
                             ),
                           ],
