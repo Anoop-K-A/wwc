@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool passshow = true;
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -47,15 +54,39 @@ class LoginScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
+<<<<<<< HEAD
+                          obscureText: passshow,
+                          decoration: InputDecoration(
+                            prefixIcon: const Icon(Icons.fingerprint_outlined),
+=======
                           obscureText: true,
                           decoration: const InputDecoration(
                             prefixIcon: Icon(
                               Icons.key_rounded,
                               color: Colors.black,
                             ),
+<<<<<<< Updated upstream
                             labelText: 'Password',
                             floatingLabelStyle: TextStyle(color: Colors.black),
                             hintText: 'Password',
+=======
+>>>>>>> ca5eef3c90a9abbc3012b090a3b77f068732931a
+                            labelText: 'Password',
+                            floatingLabelStyle: TextStyle(color: Colors.black),
+                            hintText: 'Password',
+<<<<<<< HEAD
+                            border: const OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  passshow ? passshow = false : passshow = true;
+                                });
+                              },
+                              icon: Icon(passshow == true
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+=======
+>>>>>>> Stashed changes
                             hintStyle: TextStyle(
                               fontSize: 15,
                             ),
@@ -72,6 +103,10 @@ class LoginScreen extends StatelessWidget {
                             focusedBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(width: 2.0, color: Colors.black),
+<<<<<<< Updated upstream
+=======
+>>>>>>> ca5eef3c90a9abbc3012b090a3b77f068732931a
+>>>>>>> Stashed changes
                             ),
                           ),
                         ),
