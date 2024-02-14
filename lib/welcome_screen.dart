@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:work_wave_connect/login_page.dart';
+//import 'package:work_wave_connect/login_page.dart';
 import 'package:work_wave_connect/signup_page.dart';
 
 class Welcome extends StatelessWidget {
@@ -42,7 +42,7 @@ class Welcome extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const LoginScreen();
+                        return const SignupScreen();
                       }));
                     },
                     style: OutlinedButton.styleFrom(
