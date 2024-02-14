@@ -133,6 +133,7 @@ class SignupScreen extends StatelessWidget {
                             TextButton(
                               onPressed: () {},
                               child: Text.rich(
+                              
                                 TextSpan(
                                   children: [
                                     TextSpan(
