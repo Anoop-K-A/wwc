@@ -15,6 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(10.0),

@@ -8,6 +8,7 @@ class SignupScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(30.0),
@@ -133,7 +134,6 @@ class SignupScreen extends StatelessWidget {
                             TextButton(
                               onPressed: () {},
                               child: Text.rich(
-                              
                                 TextSpan(
                                   children: [
                                     TextSpan(
