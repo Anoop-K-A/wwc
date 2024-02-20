@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/firebase_options.dart';
-import 'package:work_wave_connect/welcome_screen.dart';
+import 'package:work_wave_connect/home_page.dart';
+//import 'package:work_wave_connect/welcome_screen.dart';
 //import 'package:work_wave_connect/home_page.dart';
 //import 'package:work_wave_connect/welcome_screen.dart';
 ///import 'package:work_wave_connect/worker_add.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Welcome(),
+      home: const HomePage(),
     );
   }
 }

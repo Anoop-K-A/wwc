@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           // ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person_2_sharp,
+              Icons.account_circle,
               size: 25,
             ),
             label: 'profile',

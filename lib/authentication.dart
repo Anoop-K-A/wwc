@@ -27,20 +27,19 @@ class Authentication extends GetxController {
         email: email,
         password: password,
       );
-    }on FirebaseAuth catch (e) {
-
-    }catch(_){}
+    } on FirebaseAuth catch (e) {
+      e;
+    } catch (_) {}
   }
-  Future<void> loginWithEmailAndPassword(
-      String email, String password) async {
+
+  Future<void> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-    }on FirebaseAuth catch (e) {
-
-    }catch(_){}
-}
-
+    } on FirebaseAuth catch (e) {
+      e;
+    } catch (_) {}
+  }
 }

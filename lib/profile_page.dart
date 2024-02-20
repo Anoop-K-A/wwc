@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:work_wave_connect/about_us.dart';
+import 'package:work_wave_connect/worker_signup.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -137,6 +138,47 @@ class ProfilePage extends StatelessWidget {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
                         return const AboutUs();
+                      }));
+                    },
+                    icon: const Icon(
+                      Icons.arrow_right,
+                      color: Colors.grey,
+                    ),
+                  )),
+            ),
+            ListTile(
+              leading: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color:
+                      const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
+                ),
+                child: const Icon(
+                  Icons.person,
+                  color: Color.fromARGB(255, 0, 0, 11),
+                ),
+              ),
+              title: const Text(
+                "Register as a Worker",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              trailing: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: const Color.fromARGB(124, 151, 191, 224)
+                          .withOpacity(0.2)),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const WorkerSignup();
                       }));
                     },
                     icon: const Icon(
