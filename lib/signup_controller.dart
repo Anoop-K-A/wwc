@@ -1,25 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:work_wave_connect/authentication.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+// import 'package:work_wave_connect/authentication.dart';
 
-class SignuoController extends GetxController {
-  static SignuoController get instance => Get.find();
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneController = TextEditingController();
-  final passController = TextEditingController();
-  // @override
-  // void dispose() {
-  //   nameController.dispose();
-  //   emailController.dispose();
-  //   phoneController.dispose();
-  //   passController.dispose();
-  //   super.dispose();
-  // }
+// class SignUpController extends GetxController {
+//   static SignUpController get instance => Get.find();
+//   final name = TextEditingController();
+//   final email = TextEditingController();
+//   final phone = TextEditingController();
+//   final password = TextEditingController();
 
-  GlobalKey<FormState> signupFornKey = GlobalKey<FormState>();
-
-  void registerUser(String email, String password) {
-    Authentication.instance.createUserWithEmailAndPassword(email, password);
-  }
-}
+//   void registerUser(String email, String password) {
+//     AuthenticationRepository.instance
+//         .createUserWithEmailAndPassword(email, password);
+//   }
+// }

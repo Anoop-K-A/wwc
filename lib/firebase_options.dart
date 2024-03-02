@@ -23,9 +23,15 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -44,38 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBiubM4xPmiHvnD9_fuiAEvnEAmsUoiCCs',
-    appId: '1:650591894138:web:27ba27f32d80fcdd71d9c3',
-    messagingSenderId: '650591894138',
-    projectId: 'fir-78f74',
-    authDomain: 'fir-78f74.firebaseapp.com',
-    storageBucket: 'fir-78f74.appspot.com',
-    measurementId: 'G-M6RM945L1J',
+    apiKey: 'AIzaSyB6dJZix3WVJOvjuDSutqh5H21ZTpzNtQs',
+    appId: '1:1069207519561:web:eb806e5a91a838740a1a98',
+    messagingSenderId: '1069207519561',
+    projectId: 'work-wave-connect',
+    authDomain: 'work-wave-connect.firebaseapp.com',
+    storageBucket: 'work-wave-connect.appspot.com',
+    measurementId: 'G-T44W73Z3XJ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDYJTVG_2E-iqy5irRA9a521tttKdrAanQ',
-    appId: '1:650591894138:android:0f37c5fb0ca7c9fe71d9c3',
-    messagingSenderId: '650591894138',
-    projectId: 'fir-78f74',
-    storageBucket: 'fir-78f74.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBFbCT7Nd9SVZ_u0jQLZ1eN-mDU70hm8u4',
-    appId: '1:650591894138:ios:b1f6910e12ad4b0e71d9c3',
-    messagingSenderId: '650591894138',
-    projectId: 'fir-78f74',
-    storageBucket: 'fir-78f74.appspot.com',
-    iosBundleId: 'com.example.workWaveConnect',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBFbCT7Nd9SVZ_u0jQLZ1eN-mDU70hm8u4',
-    appId: '1:650591894138:ios:9e0971b78eb4ab4871d9c3',
-    messagingSenderId: '650591894138',
-    projectId: 'fir-78f74',
-    storageBucket: 'fir-78f74.appspot.com',
-    iosBundleId: 'com.example.workWaveConnect.RunnerTests',
+    apiKey: 'AIzaSyBLo5x6QfiQP3OOjqMnOtkLsyUWJA-6WAE',
+    appId: '1:1069207519561:android:d44f9a290c76f9340a1a98',
+    messagingSenderId: '1069207519561',
+    projectId: 'work-wave-connect',
+    storageBucket: 'work-wave-connect.appspot.com',
   );
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:work_wave_connect/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
+  static String routeName = '/login-email-password';
   const LoginScreen({super.key});
 
   @override
@@ -8,6 +11,23 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
+
+  void loginUser() async {
+    context.read<FirebaseAuthMethods>().logInWithEmail(
+          email: emailController.text,
+          password: passwordController.text,
+          context: context,
+        );
+  }
+
   bool passshow = true;
   @override
   Widget build(BuildContext context) {
@@ -37,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
+                          controller: emailController,
                           decoration: const InputDecoration(
                             prefixIcon: Icon(Icons.email),
                             labelText: 'Email',
@@ -55,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
+                          controller: passwordController,
                           obscureText: passshow,
                           decoration: InputDecoration(
                             prefixIcon: const Icon(
@@ -91,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: loginUser,
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),

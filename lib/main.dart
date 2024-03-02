@@ -1,18 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/firebase_options.dart';
 import 'package:work_wave_connect/home_page.dart';
-//import 'package:work_wave_connect/welcome_screen.dart';
-//import 'package:work_wave_connect/home_page.dart';
-//import 'package:work_wave_connect/welcome_screen.dart';
-///import 'package:work_wave_connect/worker_add.dart';
+import 'package:work_wave_connect/login_page.dart';
+import 'package:work_wave_connect/signup_page.dart';
+import 'package:work_wave_connect/welcome_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(Authentication()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -21,36 +20,64 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WWC',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(235, 171, 164, 166),
+    return MultiProvider(
+      providers: [
+        Provider<FirebaseAuthMethods>(
+          create: (_) => FirebaseAuthMethods(FirebaseAuth.instance),
         ),
-        fontFamily: 'Oswald',
-        appBarTheme: const AppBarTheme(
-          titleTextStyle: TextStyle(
-            fontSize: 20,
-            color: Color.fromARGB(255, 16, 75, 130),
-          ),
+        StreamProvider(
+          create: (context) => context.read<FirebaseAuthMethods>().authState,
+          initialData: null,
         ),
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(
-            fontSize: 30,
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'WWC',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(235, 171, 164, 166),
           ),
-          titleMedium: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
+          fontFamily: 'Oswald',
+          appBarTheme: const AppBarTheme(
+            titleTextStyle: TextStyle(
+              fontSize: 20,
+              color: Color.fromARGB(255, 16, 75, 130),
+            ),
           ),
-          titleSmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 10,
+          textTheme: const TextTheme(
+            titleLarge: TextStyle(
+              fontSize: 30,
+            ),
+            titleMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            titleSmall: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+            ),
           ),
+          useMaterial3: true,
         ),
-        useMaterial3: true,
+        home: const AuthWrapper(),
+        routes: {
+          SignupScreen.routeName: (context) => const SignupScreen(),
+          LoginScreen.routeName: (context) => const LoginScreen(),
+        },
       ),
-      home: const HomePage(),
     );
+  }
+}
+
+class AuthWrapper extends StatelessWidget {
+  const AuthWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
+    if (firebaseUser != null) {
+      return const HomePage();
+    }
+    return const Welcome();
   }
 }

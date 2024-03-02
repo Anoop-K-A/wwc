@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:work_wave_connect/signup_controller.dart';
+import 'package:provider/provider.dart';
+
+import 'package:work_wave_connect/authentication.dart';
+
 import 'package:work_wave_connect/validator.dart';
 
 class SignupScreen extends StatefulWidget {
+  static String routeName = '/signup-email-password';
   const SignupScreen({super.key});
 
   @override
@@ -11,12 +14,28 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
+  void signUpUser() async {
+    context.read<FirebaseAuthMethods>().signUpWithEmail(
+          email: emailController.text,
+          password: passwordController.text,
+          context: context,
+        );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final controller = Get.put(SignuoController());
-    final signupFornKey= GlobalKey<FormState>();
+    // ignore: unused_element
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
@@ -43,12 +62,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Form(
-                    key: controller.signupFornKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
-                          controller: controller.nameController,
+                          // controller: name,
                           validator: (value) =>
                               FValidator.validateEmtyText('First Name', value),
                           decoration: const InputDecoration(
@@ -66,8 +84,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: controller.emailController,
-                          validator: (value) => FValidator.validateEmail(value),
+                          controller: emailController,
+                          //validator: (value) => FValidator.validateEmail(value),
                           decoration: const InputDecoration(
                             label: Text('Email'),
                             border: OutlineInputBorder(),
@@ -83,7 +101,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: controller.phoneController,
+                          //controller: phone,
                           validator: (value) =>
                               FValidator.validatePhoneNo(value),
                           decoration: const InputDecoration(
@@ -101,7 +119,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: controller.passController,
+                          controller: passwordController,
                           validator: (value) =>
                               FValidator.validatePassword(value),
                           decoration: const InputDecoration(
@@ -121,13 +139,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {
-                              if (signupFornKey.currentState!.validate()) {
-                                SignuoController.instance.registerUser(
-                                    controller.emailController.text.trim(),
-                                    controller.passController.text.trim());
-                              }
-                            },
+                            onPressed: signUpUser, //{
+                            // if (_formKey.currentState!.validate()) {
+                            //   SignUpController.instance.registerUser(
+                            //       controller.email.text.trim(),
+                            //       controller.password.text.trim());
+                            // }
+                            // },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
@@ -192,4 +210,3 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-

@@ -1,26 +1,43 @@
 {
   "project_info": {
-    "project_number": "650591894138",
-    "project_id": "fir-78f74",
-    "storage_bucket": "fir-78f74.appspot.com"
+    "project_number": "1069207519561",
+    "project_id": "work-wave-connect",
+    "storage_bucket": "work-wave-connect.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:650591894138:android:0f37c5fb0ca7c9fe71d9c3",
+        "mobilesdk_app_id": "1:1069207519561:android:d44f9a290c76f9340a1a98",
         "android_client_info": {
           "package_name": "com.example.work_wave_connect"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1069207519561-6chjs59rlb23uq77hufh27klcsgool3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyDYJTVG_2E-iqy5irRA9a521tttKdrAanQ"
+          "current_key": "AIzaSyBLo5x6QfiQP3OOjqMnOtkLsyUWJA-6WAE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069207519561-6chjs59rlb23uq77hufh27klcsgool3p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1069207519561-2h0sbst1pvfrioggb8ubq0nkvk798meg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.workWaveConnect.RunnerTests"
+              }
+            }
+          ]
         }
       }
     }
