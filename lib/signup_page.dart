@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:work_wave_connect/authentication.dart';
+import 'package:work_wave_connect/login_page.dart';
 
 import 'package:work_wave_connect/validator.dart';
 
@@ -179,7 +180,12 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const LoginScreen();
+                                }));
+                              },
                               child: Text.rich(
                                 TextSpan(
                                   children: [
@@ -189,7 +195,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                             .textTheme
                                             .bodyMedium),
                                     const TextSpan(
-                                        text: ' LOGIN',
+                                        text: ' Login',
                                         style:
                                             TextStyle(color: Colors.blueAccent))
                                   ],

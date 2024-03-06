@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-enum Gender { Male, Female }
+enum Gender { Male, Female, other }
 
 class WorkerSignup extends StatefulWidget {
   const WorkerSignup({super.key});
@@ -16,7 +16,13 @@ class _WorkerSignupState extends State<WorkerSignup> {
   Widget build(BuildContext context) {
     Gender? gender;
     final size = MediaQuery.of(context).size;
-    final workersList = ["Electrician", "Carpenter", "Plumber", "Cleaner"];
+    final workersList = [
+      "--Select--",
+      "Electrician",
+      "Carpenter",
+      "Plumber",
+      "Cleaner"
+    ];
     String? selectedvalue = workersList[0];
     return SafeArea(
       child: Scaffold(
@@ -73,7 +79,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                                 borderSide: BorderSide(
                                     width: 2.0, color: Colors.black))),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 5),
                       TextFormField(
                         decoration: const InputDecoration(
                           label: Text('Full Name'),
@@ -148,6 +154,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           Expanded(
@@ -159,6 +166,8 @@ class _WorkerSignupState extends State<WorkerSignup> {
                                 onChanged: (val) {
                                   setState(() {
                                     gender = val;
+                                    // ignore: avoid_print
+                                    print(val);
                                   });
                                 }),
                           ),
@@ -171,11 +180,31 @@ class _WorkerSignupState extends State<WorkerSignup> {
                                 onChanged: (val) {
                                   setState(() {
                                     gender = val;
+                                    // ignore: avoid_print
+                                    print(val);
                                   });
                                 }),
                           ),
                         ],
                       ),
+
+                      const SizedBox(height: 5),
+                      TextFormField(
+                        maxLines: 3,
+                        decoration: const InputDecoration(
+                          label: Text('Description'),
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.description_outlined),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 2.0, color: Colors.black),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
 
                       // Row(
                       //     mainAxisAlignment: MainAxisAlignment.start,

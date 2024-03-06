@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:work_wave_connect/authentication.dart';
+import 'package:work_wave_connect/signup_page.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = '/login-email-password';
@@ -151,7 +152,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 3),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const SignupScreen();
+                        }));
+                      },
                       child: Text.rich(
                         TextSpan(
                           text: "Don't Have an Account?",
