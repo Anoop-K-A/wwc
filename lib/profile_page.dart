@@ -1,9 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:work_wave_connect/about_us.dart';
+import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/worker_signup.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
+  void signOff() async {
+    FirebaseAuthMethods(FirebaseAuth.instance).logout();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -201,9 +207,9 @@ class ProfilePage extends StatelessWidget {
                   color:
                       const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
                 ),
-                child: const Icon(
-                  Icons.logout,
-                  color: Color.fromARGB(255, 0, 0, 11),
+                child: IconButton(
+                  onPressed: signOff,
+                  icon: const Icon(Icons.logout),
                 ),
               ),
               title: const Text(

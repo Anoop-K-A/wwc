@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:work_wave_connect/authentication.dart';
+
+import 'package:work_wave_connect/signup_controller.dart';
 import 'package:work_wave_connect/signup_page.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,20 +13,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final controller = SignUpController();
   @override
   void dispose() {
     super.dispose();
-    emailController.dispose();
-    passwordController.dispose();
+    controller.email.dispose();
+    controller.password.dispose();
   }
 
-  void loginUser() async {
-    context.read<FirebaseAuthMethods>().logInWithEmail(
-          email: emailController.text,
-          password: passwordController.text,
-          context: context,
+  void login() async {
+    context.read<SignUpController>().loginUser(
+          controller.email.text,
+          controller.password.text,
+          context,
         );
   }
 
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
-                          controller: emailController,
+                          controller: controller.email,
                           decoration: const InputDecoration(
                             prefixIcon: Icon(Icons.email),
                             labelText: 'Email',
@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: passwordController,
+                          controller: controller.password,
                           obscureText: passshow,
                           decoration: InputDecoration(
                             prefixIcon: const Icon(
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: loginUser,
+                            onPressed: login,
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),

@@ -6,6 +6,7 @@ import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/firebase_options.dart';
 import 'package:work_wave_connect/home_page.dart';
 import 'package:work_wave_connect/login_page.dart';
+import 'package:work_wave_connect/signup_controller.dart';
 import 'package:work_wave_connect/signup_page.dart';
 import 'package:work_wave_connect/welcome_screen.dart';
 
@@ -25,10 +26,17 @@ class MyApp extends StatelessWidget {
         Provider<FirebaseAuthMethods>(
           create: (_) => FirebaseAuthMethods(FirebaseAuth.instance),
         ),
+        Provider<SignUpController>(
+          create: (_) => SignUpController(),
+        ),
         StreamProvider(
           create: (context) => context.read<FirebaseAuthMethods>().authState,
           initialData: null,
         ),
+        // StreamProvider(
+        //   create: (context) => context.read<SignUpController>().authState,
+        //   initialData: null,
+        // ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/login_page.dart';
+import 'package:work_wave_connect/signup_controller.dart';
 
 import 'package:work_wave_connect/validator.dart';
 
@@ -15,23 +15,23 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final controller = SignUpController();
   @override
   void dispose() {
     super.dispose();
-    emailController.dispose();
-    passwordController.dispose();
+    controller.email.dispose();
+    controller.password.dispose();
   }
 
   void signUpUser() async {
-    context.read<FirebaseAuthMethods>().signUpWithEmail(
-          email: emailController.text,
-          password: passwordController.text,
-          context: context,
+    context.read<SignUpController>().registerUser(
+          controller.email.text,
+          controller.password.text,
+          context,
         );
   }
 
+  bool passshow = true;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -85,7 +85,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: emailController,
+                          controller: controller.email,
                           //validator: (value) => FValidator.validateEmail(value),
                           decoration: const InputDecoration(
                             label: Text('Email'),
@@ -120,17 +120,26 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          controller: passwordController,
+                          controller: controller.password,
                           validator: (value) =>
                               FValidator.validatePassword(value),
-                          decoration: const InputDecoration(
-                            label: Text('Password'),
-                            border: OutlineInputBorder(),
-                            prefixIcon: Icon(Icons.key_outlined),
-                            labelStyle: TextStyle(
+                          decoration: InputDecoration(
+                            label: const Text('Password'),
+                            border: const OutlineInputBorder(),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  passshow ? passshow = false : passshow = true;
+                                });
+                              },
+                              icon: Icon(passshow == true
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                            ),
+                            labelStyle: const TextStyle(
                               color: Colors.black,
                             ),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide:
                                   BorderSide(width: 2.0, color: Colors.black),
                             ),
