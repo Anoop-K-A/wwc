@@ -1,25 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:work_wave_connect/authentication.dart';
+import 'package:work_wave_connect/data_model.dart';
+import 'package:work_wave_connect/data_repository.dart';
+import 'package:work_wave_connect/worker_model.dart';
 
 class SignUpController {
-  SignUpController();
-
   //Stream<User?> get authState => SignUpController.instance.idTokenChanges();
   final name = TextEditingController();
   final email = TextEditingController();
   final phone = TextEditingController();
   final password = TextEditingController();
+  final age = TextEditingController();
+  final place = TextEditingController();
+  final discription = TextEditingController();
 
-  void registerUser(String email, String password, BuildContext context) async {
-    context
-        .read<FirebaseAuthMethods>()
-        .signUpWithEmail(email: email, password: password, context: context);
+  void registerUser(UserModel user) async {
+    user.context.read<FirebaseAuthMethods>().signUpWithEmail(user,
+        email: user.email, password: user.password, context: user.context);
   }
 
-  void loginUser(String email, String password, BuildContext context) async {
+  void loginUser(
+    String email,
+    String password,
+    BuildContext context,
+  ) async {
     context
         .read<FirebaseAuthMethods>()
         .logInWithEmail(email: email, password: password, context: context);
+  }
+
+  void addWork(WorkerModel work) async {
+    DataRepository().createWorker(work);
   }
 }

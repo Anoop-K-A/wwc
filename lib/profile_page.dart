@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import 'package:work_wave_connect/about_us.dart';
 import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/worker_signup.dart';
@@ -13,6 +14,22 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = context.read<FirebaseAuthMethods>().user;
+    final decoration = BoxDecoration(
+      borderRadius: BorderRadius.circular(100),
+      color: const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
+    );
+    const styleOfButton = TextStyle(
+      fontWeight: FontWeight.bold,
+      fontStyle: FontStyle.italic,
+    );
+    // final usrName = FirebaseFirestore.instance
+    //     .collection('Users')
+    //     .doc(user.uid)
+    //     .collection('user');
+    // final querySnapshot=await
+    // final  doc = usrName.docs.first;
+
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -34,7 +51,8 @@ class ProfilePage extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: const Image(
-                          image: AssetImage('assets/images/proicon.png')),
+                        image: AssetImage('assets/images/proicon.png'),
+                      ),
                     ),
                   ),
                   Positioned(
@@ -51,21 +69,21 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                 ]),
-                const Column(
+                Column(
                   children: [
                     Text(
-                      "      User's name",
+                      user.uid,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      "Email ID",
+                      user.email as String,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic),
@@ -81,11 +99,7 @@ class ProfilePage extends StatelessWidget {
               leading: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color:
-                      const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
-                ),
+                decoration: decoration,
                 child: const Icon(
                   Icons.settings,
                   color: Color.fromARGB(255, 0, 0, 11),
@@ -93,10 +107,7 @@ class ProfilePage extends StatelessWidget {
               ),
               title: const Text(
                 "Settings",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
+                style: styleOfButton,
               ),
               trailing: Container(
                 width: 40,
@@ -115,23 +126,13 @@ class ProfilePage extends StatelessWidget {
               leading: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color:
-                      const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
-                ),
+                decoration: decoration,
                 child: const Icon(
                   Icons.groups,
                   color: Color.fromARGB(255, 0, 0, 11),
                 ),
               ),
-              title: const Text(
-                "About US",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
+              title: const Text("About US", style: styleOfButton),
               trailing: Container(
                   width: 40,
                   height: 40,
@@ -156,23 +157,13 @@ class ProfilePage extends StatelessWidget {
               leading: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color:
-                      const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
-                ),
+                decoration: decoration,
                 child: const Icon(
                   Icons.person,
                   color: Color.fromARGB(255, 0, 0, 11),
                 ),
               ),
-              title: const Text(
-                "Register as a Worker",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
+              title: const Text("Register as a Worker", style: styleOfButton),
               trailing: Container(
                   width: 40,
                   height: 40,
@@ -202,11 +193,7 @@ class ProfilePage extends StatelessWidget {
               leading: Container(
                 width: 40,
                 height: 40,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color:
-                      const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
-                ),
+                decoration: decoration,
                 child: IconButton(
                   onPressed: signOff,
                   icon: const Icon(Icons.logout),

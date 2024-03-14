@@ -1,8 +1,9 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
 
-enum Gender { Male, Female, other }
+import 'package:work_wave_connect/signup_controller.dart';
+import 'package:work_wave_connect/worker_model.dart';
+
+enum Gender { male, female, other }
 
 class WorkerSignup extends StatefulWidget {
   const WorkerSignup({super.key});
@@ -14,6 +15,8 @@ class WorkerSignup extends StatefulWidget {
 class _WorkerSignupState extends State<WorkerSignup> {
   @override
   Widget build(BuildContext context) {
+    final controller = SignUpController();
+
     Gender? gender;
     final size = MediaQuery.of(context).size;
     final workersList = [
@@ -24,6 +27,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
       "Cleaner"
     ];
     String? selectedvalue = workersList[0];
+
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
@@ -81,6 +85,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                       ),
                       const SizedBox(height: 5),
                       TextFormField(
+                        controller: controller.name,
                         decoration: const InputDecoration(
                           label: Text('Full Name'),
                           border: OutlineInputBorder(),
@@ -160,9 +165,9 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           Expanded(
                             child: RadioListTile<Gender>(
                                 contentPadding: const EdgeInsets.all(0.0),
-                                value: Gender.Male,
+                                value: Gender.male,
                                 groupValue: gender,
-                                title: Text(Gender.Male.name),
+                                title: Text(Gender.male.name),
                                 onChanged: (val) {
                                   setState(() {
                                     gender = val;
@@ -174,9 +179,9 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           Expanded(
                             child: RadioListTile<Gender>(
                                 contentPadding: const EdgeInsets.all(0.0),
-                                value: Gender.Female,
+                                value: Gender.female,
                                 groupValue: gender,
-                                title: Text(Gender.Female.name),
+                                title: Text(Gender.female.name),
                                 onChanged: (val) {
                                   setState(() {
                                     gender = val;
@@ -211,7 +216,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                       //     children: [
                       //       Expanded(
                       //         child: ListTile(
-                      //           title: const Text('Male'),
+                      //           title: const Text('male'),
                       //           leading: Radio(
                       //               value: 'male',
                       //               groupValue: null,
@@ -220,7 +225,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                       //       ),
                       //       Expanded(
                       //         child: ListTile(
-                      //           title: const Text('Female'),
+                      //           title: const Text('female'),
                       //           leading: Radio(
                       //               value: 'female',
                       //               groupValue: null,
@@ -241,7 +246,20 @@ class _WorkerSignupState extends State<WorkerSignup> {
                       SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              final work = WorkerModel(
+                                name: controller.name.text,
+                                email: controller.email.text,
+                                phone: controller.phone.text,
+                                work: selectedvalue,
+                                age: controller.age.text,
+                                gender: gender,
+                                discription: controller.discription.text,
+                                place: controller.place.text,
+                                context: context,
+                              );
+                              SignUpController().addWork(work);
+                            },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),

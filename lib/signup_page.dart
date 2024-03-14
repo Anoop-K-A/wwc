@@ -1,13 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:work_wave_connect/authentication.dart';
+import 'package:work_wave_connect/data_model.dart';
 
 import 'package:work_wave_connect/login_page.dart';
 import 'package:work_wave_connect/signup_controller.dart';
 
-import 'package:work_wave_connect/validator.dart';
-
 class SignupScreen extends StatefulWidget {
   static String routeName = '/signup-email-password';
+
   const SignupScreen({super.key});
 
   @override
@@ -16,22 +17,29 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final controller = SignUpController();
+
   @override
   void dispose() {
     super.dispose();
+    controller.name.dispose();
     controller.email.dispose();
+    controller.phone.dispose();
     controller.password.dispose();
   }
 
   void signUpUser() async {
-    context.read<SignUpController>().registerUser(
-          controller.email.text,
-          controller.password.text,
-          context,
-        );
+    final user = UserModel(
+      name: controller.name.text,
+      email: controller.email.text,
+      phone: controller.phone.text,
+      password: controller.password.text,
+      context: context,
+    );
+    SignUpController().registerUser(user);
   }
 
   bool passshow = true;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -67,9 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
-                          // controller: name,
-                          validator: (value) =>
-                              FValidator.validateEmtyText('First Name', value),
+                          controller: controller.name,
                           decoration: const InputDecoration(
                             label: Text('Full Name'),
                             border: OutlineInputBorder(),
@@ -86,7 +92,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         const SizedBox(height: 10),
                         TextFormField(
                           controller: controller.email,
-                          //validator: (value) => FValidator.validateEmail(value),
                           decoration: const InputDecoration(
                             label: Text('Email'),
                             border: OutlineInputBorder(),
@@ -102,9 +107,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         const SizedBox(height: 10),
                         TextFormField(
-                          //controller: phone,
-                          validator: (value) =>
-                              FValidator.validatePhoneNo(value),
+                          controller: controller.phone,
                           decoration: const InputDecoration(
                             label: Text('Phone No.'),
                             border: OutlineInputBorder(),
@@ -121,8 +124,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         const SizedBox(height: 10),
                         TextFormField(
                           controller: controller.password,
-                          validator: (value) =>
-                              FValidator.validatePassword(value),
+                          obscureText: passshow,
                           decoration: InputDecoration(
                             label: const Text('Password'),
                             border: const OutlineInputBorder(),
@@ -149,13 +151,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: signUpUser, //{
-                            // if (_formKey.currentState!.validate()) {
-                            //   SignUpController.instance.registerUser(
-                            //       controller.email.text.trim(),
-                            //       controller.password.text.trim());
-                            // }
-                            // },
+                            onPressed: signUpUser,
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:work_wave_connect/data_model.dart';
+import 'package:work_wave_connect/data_repository.dart';
 import 'package:work_wave_connect/home_page.dart';
 import 'package:work_wave_connect/show_snack_bar.dart';
 import 'package:work_wave_connect/welcome_screen.dart';
@@ -8,10 +10,12 @@ import 'package:work_wave_connect/welcome_screen.dart';
 class FirebaseAuthMethods {
   final FirebaseAuth _auth;
   FirebaseAuthMethods(this._auth);
+  User get user => _auth.currentUser!;
 
   Stream<User?> get authState => FirebaseAuth.instance.idTokenChanges();
 
-  Future<void> signUpWithEmail({
+  Future<void> signUpWithEmail(
+    UserModel user, {
     required String email,
     required String password,
     required BuildContext context,
@@ -21,9 +25,12 @@ class FirebaseAuthMethods {
         email: email,
         password: password,
       );
+      final usr =FirebaseAuthMethods(FirebaseAuth.instance).user;
+      DataRepository().createUser(usr,user);
       // ignore: use_build_context_synchronously
       await sendEmailVerification(context);
       // ignore: use_build_context_synchronously
+
       Navigator.push(
         context,
         MaterialPageRoute(
