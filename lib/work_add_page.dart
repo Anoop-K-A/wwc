@@ -5,7 +5,7 @@ import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/data_repository.dart';
 import 'package:work_wave_connect/person_details.dart';
 import 'package:work_wave_connect/worker_signup.dart';
-import 'package:work_wave_connect/workerspage/workers_data.dart';
+
 import 'package:work_wave_connect/workerspage/workers_detail_page_cart.dart';
 
 class WorkAdd extends StatefulWidget {

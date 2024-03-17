@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'package:get/get.dart';
 import 'package:work_wave_connect/data_model.dart';
 import 'package:work_wave_connect/worker_model.dart';

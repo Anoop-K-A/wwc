@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:work_wave_connect/authentication.dart';
-import 'package:work_wave_connect/data_model.dart';
 import 'package:work_wave_connect/firebase_options.dart';
 import 'package:work_wave_connect/home_page.dart';
 import 'package:work_wave_connect/login_page.dart';

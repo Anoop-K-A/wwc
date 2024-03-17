@@ -1,11 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:work_wave_connect/about_us.dart';
 import 'package:work_wave_connect/authentication.dart';
 import 'package:work_wave_connect/work_add_page.dart';
-import 'package:work_wave_connect/worker_signup.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

@@ -1,6 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:work_wave_connect/authentication.dart';
+
 import 'package:work_wave_connect/data_model.dart';
 
 import 'package:work_wave_connect/login_page.dart';
