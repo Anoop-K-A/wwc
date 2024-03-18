@@ -21,27 +21,29 @@ class PersonDetails extends StatelessWidget {
       appBar: AppBar(
         title: Center(
           child: Text(
-            profileDetails['name'] as String,
+            "Worker profile",
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 20),
                   Image(
                     image: (profileDetails['workerImage'] as String).isEmpty
                         ? const AssetImage('assets/images/proicon.png')
                         : AssetImage(profileDetails['workerImage'] as String),
-                    height: 150,
+                    height: 120,
                   ),
+                  const SizedBox(width: 20),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -52,30 +54,31 @@ class PersonDetails extends StatelessWidget {
                           //   'Gender: ${profileDetails['gender'] as String}',
                           //   style: inter,
                           // ),
+
+                          Text(
+                            'Name: ${profileDetails['name'] as String}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
                           Text(
                             'Age: ${profileDetails['age'] as String}',
-                            style: inter,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
-                          Text(
-                            'Ph NO: ${profileDetails['phno'] as String}',
-                            style: inter,
-                          ),
+
                           Text(
                             'Place: ${profileDetails['place'] as String}',
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: inter,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
                           ),
-                          Text(
-                            'Email: ${profileDetails['email'] as String}',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: inter,
-                          ),
-                          // Text(
-                          //   'Year of exp: ${profileDetails['yearofexp'] as String}',
-                          //   style: inter,
-                          // ),
                         ],
                       ),
                     ),
@@ -83,13 +86,29 @@ class PersonDetails extends StatelessWidget {
                 ],
               ),
             ),
-            Text(
-              ' ${profileDetails['discription'] as String}',
-              style: inter,
-            ),
-            Text(
-              'Place: ${profileDetails['place'] as String}',
-              style: inter,
+            const SizedBox(height: 10),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  'Email: ${profileDetails['email'] as String}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: inter,
+                ),
+                Text(
+                  'Ph NO: ${profileDetails['phno'] as String}',
+                  style: inter,
+                ),
+                // Text(
+                //   'Year of exp: ${profileDetails['yearofexp'] as String}',
+                //   style: inter,
+                // ),
+                Text(
+                  ' ${profileDetails['discription'] as String}',
+                  style: inter,
+                ),
+              ],
             ),
           ],
         ),

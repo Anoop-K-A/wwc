@@ -1,4 +1,3 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,10 +18,7 @@ class ProfilePage extends StatelessWidget {
       borderRadius: BorderRadius.circular(100),
       color: const Color.fromARGB(124, 151, 191, 224).withOpacity(0.2),
     );
-    const styleOfButton = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontStyle: FontStyle.italic,
-    );
+
     // final usrName = FirebaseFirestore.instance
     //     .collection('Users')
     //     .doc(user.uid)
@@ -105,10 +101,24 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 11),
                 ),
               ),
-              title: const Text(
-                "Settings",
-                style: styleOfButton,
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Settings",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
+              // const Text(
+              //   "Settings",
+              //   style: styleOfButton,
+              // ),
               trailing: Container(
                 width: 40,
                 height: 40,
@@ -132,7 +142,25 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 11),
                 ),
               ),
-              title: const Text("About US", style: styleOfButton),
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const AboutUs();
+                    }));
+                  },
+                  child: const Text(
+                    "About US",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
               trailing: Container(
                   width: 40,
                   height: 40,
@@ -163,7 +191,23 @@ class ProfilePage extends StatelessWidget {
                   color: Color.fromARGB(255, 0, 0, 11),
                 ),
               ),
-              title: const Text("Register as a Worker", style: styleOfButton),
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const WorkAdd();
+                    }));
+                  },
+                  child: const Text("Register as a Worker",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
               trailing: Container(
                   width: 40,
                   height: 40,
@@ -199,12 +243,18 @@ class ProfilePage extends StatelessWidget {
                   icon: const Icon(Icons.logout),
                 ),
               ),
-              title: const Text(
-                "Logout",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.red,
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: signOff,
+                  child: const Text(
+                    "Logout",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.red,
+                    ),
+                  ),
                 ),
               ),
               trailing: Container(
@@ -214,9 +264,9 @@ class ProfilePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     color: const Color.fromARGB(124, 151, 191, 224)
                         .withOpacity(0.2)),
-                child: const Icon(
-                  Icons.logout,
-                  color: Colors.grey,
+                child: IconButton(
+                  onPressed: signOff,
+                  icon: const Icon(Icons.logout),
                 ),
               ),
             ),
