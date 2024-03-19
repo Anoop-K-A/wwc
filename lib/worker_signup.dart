@@ -28,7 +28,6 @@ class _WorkerSignupState extends State<WorkerSignup> {
 
   @override
   Widget build(BuildContext context) {
-    Gender? gender;
     final size = MediaQuery.of(context).size;
 
     final controller = SignUpController();
@@ -60,7 +59,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                       DecoratedBox(
                         decoration: BoxDecoration(
                           border: Border.all(color: Colors.black, width: 1.0),
-                          borderRadius: BorderRadius.circular(50.0),
+                          borderRadius: const BorderRadius.all(Radius.zero),
                         ),
                         child: DropdownButtonFormField<String>(
                           value: selectedvalue,
@@ -84,10 +83,11 @@ class _WorkerSignupState extends State<WorkerSignup> {
                             labelStyle: TextStyle(color: Colors.black),
                             prefixIcon: Icon(Icons.person),
                             enabledBorder: InputBorder.none,
+                            contentPadding: EdgeInsets.symmetric(vertical: 8),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.name,
                         decoration: const InputDecoration(
@@ -97,13 +97,14 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           labelStyle: TextStyle(
                             color: Colors.black,
                           ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 2.0, color: Colors.black),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.phone,
                         decoration: const InputDecoration(
@@ -113,6 +114,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           labelStyle: TextStyle(
                             color: Colors.black,
                           ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 2.0, color: Colors.black),
@@ -120,7 +122,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                         ),
                       ),
 
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.age,
                         decoration: const InputDecoration(
@@ -130,13 +132,14 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           labelStyle: TextStyle(
                             color: Colors.black,
                           ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 2.0, color: Colors.black),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.place,
                         decoration: const InputDecoration(
@@ -146,47 +149,47 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           labelStyle: TextStyle(
                             color: Colors.black,
                           ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
                           focusedBorder: OutlineInputBorder(
                             borderSide:
                                 BorderSide(width: 2.0, color: Colors.black),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: RadioListTile<Gender>(
-                                contentPadding: const EdgeInsets.all(0.0),
-                                value: Gender.male,
-                                groupValue: gender,
-                                title: Text(Gender.male.name),
-                                onChanged: (val) {
-                                  setState(() {
-                                    gender = val;
-                                    // ignore: avoid_print
-                                    print(val);
-                                  });
-                                }),
-                          ),
-                          // Expanded(
-                          //   child: RadioListTile<Gender>(
-                          //       contentPadding: const EdgeInsets.all(0.0),
-                          //       value: Gender.female,
-                          //       groupValue: gender,
-                          //       title: Text(Gender.female.name),
-                          //       onChanged: (val) {
-                          //         setState(() {
-                          //           gender = val;
-                          //           // ignore: avoid_print
-                          //           print(val);
-                          //         });
-                          //       }),
-                          // ),
-                        ],
-                      ),
+                      const SizedBox(height: 8),
+                      // Row(
+                      //   children: [
+                      //     Expanded(
+                      //       child: RadioListTile<Gender>(
+                      //           contentPadding: const EdgeInsets.all(0.0),
+                      //           value: Gender.male,
+                      //           groupValue: gender,
+                      //           title: Text(Gender.male.name),
+                      //           onChanged: (val) {
+                      //             setState(() {
+                      //               gender = val;
+                      //               // ignore: avoid_print
+                      //               print(val);
+                      //             });
+                      //           }),
+                      //     ),
+                      //     // Expanded(
+                      //     //   child: RadioListTile<Gender>(
+                      //     //       contentPadding: const EdgeInsets.all(0.0),
+                      //     //       value: Gender.female,
+                      //     //       groupValue: gender,
+                      //     //       title: Text(Gender.female.name),
+                      //     //       onChanged: (val) {
+                      //     //         setState(() {
+                      //     //           gender = val;
+                      //     //           // ignore: avoid_print
+                      //     //           print(val);
+                      //     //         });
+                      //     //       }),
+                      //     // ),
+                      //   ],
+                      // ),
 
-                      const SizedBox(height: 5),
                       TextFormField(
                         controller: controller.discription,
                         maxLines: 3,

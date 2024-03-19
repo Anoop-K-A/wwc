@@ -12,11 +12,11 @@ class PersonDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const inter = TextStyle(
-      fontFamily: 'Inter',
-      fontWeight: FontWeight.bold,
-      fontSize: 18,
-    );
+    // const inter = TextStyle(
+    //   fontFamily: 'Inter',
+    //   fontWeight: FontWeight.bold,
+    //   fontSize: 18,
+    // );
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -26,62 +26,79 @@ class PersonDetails extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            const SizedBox(height: 20),
+            Center(
+              child: Column(
                 children: [
-                  const SizedBox(height: 20),
                   Image(
                     image: (profileDetails['workerImage'] as String).isEmpty
                         ? const AssetImage('assets/images/proicon.png')
                         : AssetImage(profileDetails['workerImage'] as String),
                     height: 120,
                   ),
-                  const SizedBox(width: 20),
-                  const SizedBox(height: 20),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Text(
-                          //   'Gender: ${profileDetails['gender'] as String}',
-                          //   style: inter,
-                          // ),
-
-                          Text(
-                            'Name: ${profileDetails['name'] as String}',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                          Text(
-                            'Age: ${profileDetails['age'] as String}',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-
-                          Text(
-                            'Place: ${profileDetails['place'] as String}',
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ],
-                      ),
+                  const SizedBox(height: 5),
+                  Text(
+                    ' ${profileDetails['name'] as String}',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
                     ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: const Text(
+                          'Phone',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        icon: const Icon(
+                          Icons.phone,
+                          color: Colors.black,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0)),
+                            backgroundColor: Colors.lightBlueAccent),
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: const Text(
+                          'Email',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        icon: const Icon(
+                          Icons.email,
+                          color: Colors.black,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0)),
+                            backgroundColor: Colors.lightBlueAccent),
+                      ),
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        label: const Text(
+                          'Add',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        icon: const Icon(
+                          Icons.person_add,
+                          color: Colors.black,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.0)),
+                            backgroundColor: Colors.lightBlueAccent),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -89,27 +106,72 @@ class PersonDetails extends StatelessWidget {
             const SizedBox(height: 10),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Text(
+                  'Age:',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
                 Text(
-                  'Email: ${profileDetails['email'] as String}',
+                  '     ${profileDetails['age'] as String}',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: 'inter'),
+                ),
+                const Text(
+                  'Place:',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
+                Text(
+                  '    ${profileDetails['place'] as String}',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: inter,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: 'inter'),
+                ),
+                const Text(
+                  'Email:',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
                 ),
                 Text(
-                  'Ph NO: ${profileDetails['phno'] as String}',
-                  style: inter,
+                  '     ${profileDetails['email'] as String}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: 'inter'),
                 ),
-                // Text(
-                //   'Year of exp: ${profileDetails['yearofexp'] as String}',
-                //   style: inter,
-                // ),
+                const Text(
+                  'Phone No:',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
                 Text(
-                  ' ${profileDetails['discription'] as String}',
-                  style: inter,
+                  '    ${profileDetails['phno'] as String}',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: 'inter'),
+                ),
+                const Text(
+                  'Description:',
+                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    ' ${profileDetails['discription'] as String}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'inter'),
+                  ),
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
