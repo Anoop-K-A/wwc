@@ -112,49 +112,61 @@ class PersonDetails extends StatelessWidget {
                   'Age:',
                   style: TextStyle(color: Colors.blue, fontSize: 20),
                 ),
-                Text(
-                  '     ${profileDetails['age'] as String}',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'inter'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    ' ${profileDetails['age'] as String}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'inter'),
+                  ),
                 ),
                 const Text(
                   'Place:',
                   style: TextStyle(color: Colors.blue, fontSize: 20),
                 ),
-                Text(
-                  '    ${profileDetails['place'] as String}',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'inter'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    ' ${profileDetails['place'] as String}',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'inter'),
+                  ),
                 ),
                 const Text(
                   'Email:',
                   style: TextStyle(color: Colors.blue, fontSize: 20),
                 ),
-                Text(
-                  '     ${profileDetails['email'] as String}',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'inter'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    ' ${profileDetails['email'] as String}',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'inter'),
+                  ),
                 ),
                 const Text(
                   'Phone No:',
                   style: TextStyle(color: Colors.blue, fontSize: 20),
                 ),
-                Text(
-                  '    ${profileDetails['phno'] as String}',
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: 'inter'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    ' ${profileDetails['phno'] as String}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        fontFamily: 'inter'),
+                  ),
                 ),
                 const Text(
                   'Description:',

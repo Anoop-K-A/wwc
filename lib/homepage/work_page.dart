@@ -23,16 +23,20 @@ class _WorkPageState extends State<WorkPage> {
                 child: Text(
                   "Choose\n        You'er worker",
                   style: Theme.of(context).textTheme.titleLarge,
+                  selectionColor: Colors.lightBlueAccent,
                 ),
               ),
               const Expanded(
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search',
-                    prefixIcon: Icon(Icons.search),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.lightBlueAccent,
+                    ),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Color.fromRGBO(251, 6, 6, 1),
+                        color: Colors.lightBlueAccent,
                       ),
                       borderRadius: BorderRadius.horizontal(
                         left: Radius.circular(50),

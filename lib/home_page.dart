@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
         },
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Colors.lightBlueAccent,
             icon: Icon(
               Icons.home,
               size: 25,

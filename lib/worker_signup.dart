@@ -104,6 +104,7 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           ),
                         ),
                       ),
+
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.phone,
@@ -121,7 +122,23 @@ class _WorkerSignupState extends State<WorkerSignup> {
                           ),
                         ),
                       ),
-
+                      const SizedBox(height: 8),
+                      TextFormField(
+                        controller: controller.name,
+                        decoration: const InputDecoration(
+                          label: Text('Year Of Experience'),
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.work_history),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(width: 2.0, color: Colors.black),
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 8),
                       TextFormField(
                         controller: controller.age,

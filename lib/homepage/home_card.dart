@@ -15,6 +15,7 @@ class HomeCard extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
           horizontal: 18.0, vertical: 5.0),
       child: Card(
+        color: Colors.lightBlueAccent,
         elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

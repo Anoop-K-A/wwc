@@ -25,6 +25,7 @@ class WorkerCart extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
           horizontal: 20.0, vertical: 5.0),
       child: Card(
+        color: Colors.lightBlueAccent,
         elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
@@ -40,7 +41,7 @@ class WorkerCart extends StatelessWidget {
                     image: profile.isEmpty
                         ? const AssetImage('assets/images/proicon.png')
                         : AssetImage(profile),
-                    height: 90,
+                    height: 70,
                   ),
                   Expanded(
                     child: Padding(
@@ -49,20 +50,25 @@ class WorkerCart extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Name: $name',
-                            style: inter,
+                            ' $name',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'inter',
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           Text(
                             textAlign: TextAlign.center,
                             'Age: $age',
                             style: inter,
                           ),
-                          Text(
-                            discription,
-                            style: inter,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                          // Text(
+                          //   discription,
+                          //   style: inter,
+                          //   maxLines: 2,
+                          //   overflow: TextOverflow.ellipsis,
+                          // ),
                           Text(
                             textAlign: TextAlign.center,
                             'Place: $place',
