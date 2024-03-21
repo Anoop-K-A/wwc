@@ -1,11 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:work_wave_connect/data_repository.dart';
-import 'package:work_wave_connect/my_worker1.dart';
+import 'package:work_wave_connect/homepage/home_variable.dart';
+import 'package:work_wave_connect/person_details.dart';
+import 'package:work_wave_connect/profile_page.dart';
+import 'package:work_wave_connect/workerspage/workers_detail_page_cart.dart';
 
 class WorkerBooking extends StatefulWidget {
+  //final DocumentSnapshot? id;
   const WorkerBooking({
     super.key,
+    //required this.id,
   });
 
   @override
@@ -13,10 +18,10 @@ class WorkerBooking extends StatefulWidget {
 }
 
 class _WorkerBookingState extends State<WorkerBooking> {
-  Stream? bookingDetails;
+  Stream? jobDetails;
 
   getOnTheLoad() async {
-    bookingDetails = await DataRepository().getBookingDetails();
+    jobDetails = await DataRepository().getJobDetails();
     setState(() {});
   }
 
@@ -26,26 +31,46 @@ class _WorkerBookingState extends State<WorkerBooking> {
     super.initState();
   }
 
-  Widget bookingDetail() {
+  Widget showCartWork() {
+    String? profileDetail;
     return StreamBuilder(
-        stream: bookingDetails,
+        stream: jobDetails,
         builder: (context, AsyncSnapshot snapshot) {
-          return ListView.builder(
-              itemCount: snapshot.data.docs.length,
-              itemBuilder: (context, index) {
-                //final DocumentSnapshot booking = snapshot.data.docs[index];
-                return WorkerBooking1(booking: snapshot.data.docs[index]);
-              });
+          return snapshot.hasData
+              ? ListView.builder(
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (context, index) {
+                    DocumentSnapshot work = snapshot.data.docs[index];
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) {
+                            final DocumentSnapshot profileDetails =
+                                snapshot.data.docs[index];
+                            profileDetail = profileDetails['id'];
+                            return PersonDetails(
+                              profileDetails: snapshot.data.docs[index],
+                            );
+                          }),
+                        );
+                        profileDetail == work['id']
+                            ? WorkerCart(
+                                profile: work['workerImage'] as String,
+                                yearOfExp: work['discription'] as String,
+                                name: work['name'] as String,
+                                place: (work['place'] as String),
+                                age: (work['age'] as String),
+                              )
+                            : Container();
+                      },
+                    );
+                  })
+              : Container();
         });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Your Bookings'),
-      ),
-      body: bookingDetail(),
-    );
+    return Scaffold(body: showCartWork());
   }
 }

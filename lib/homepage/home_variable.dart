@@ -7,7 +7,7 @@ final works = [
   {
     'id': '1',
     'title': 'Carpenter\'s',
-    'imageUrl': 'assets/images/carp.png',
+    'imageUrl': 'assets/images/carpenter.jpg',
   },
   {
     'id': '2',

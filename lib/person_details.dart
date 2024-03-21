@@ -3,10 +3,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 import 'package:work_wave_connect/booking_module.dart';
+import 'package:work_wave_connect/my_worker.dart';
+import 'package:work_wave_connect/paying_button.dart';
 import 'package:work_wave_connect/signup_controller.dart';
 
 class PersonDetails extends StatefulWidget {
@@ -29,6 +30,7 @@ class _PersonDetailsState extends State<PersonDetails> {
   Widget build(BuildContext context) {
     String bookedDate;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Center(
           child: Text(
@@ -198,7 +200,13 @@ class _PersonDetailsState extends State<PersonDetails> {
                                                       context: context);
                                                   SignUpController()
                                                       .addBooking(booking);
-                                                      Navigator.of(context).pop();
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: (context) {
+                                                        return WorkerBooking();
+                                                      },
+                                                    ),
+                                                  );
                                                 },
                                                 child: Text(
                                                   'Book',
@@ -342,10 +350,11 @@ class _PersonDetailsState extends State<PersonDetails> {
                             fontFamily: 'inter'),
                       ),
                     ),
+                    const PayingButton(),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -15,9 +15,9 @@ class WorkPage extends StatefulWidget {
 
 class _WorkPageState extends State<WorkPage> {
   final List<String> imagePaths = [
-    "assets/images/carp.png",
-    "assets/images/cleaner.png",
-    "assets/images/elec.png",
+    "assets/images/slide1.jpg",
+    "assets/images/slide2.jpg",
+    "assets/images/slide3.jpg",
   ];
   late List<Widget> _pages;
   int _activePage = 0;

@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           // primarySwatch: Colors.blue,
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 138, 232, 255),
+            seedColor: Color.fromARGB(255, 166, 227, 242),
           ),
           fontFamily: 'Oswald',
           appBarTheme: const AppBarTheme(
