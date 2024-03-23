@@ -2,7 +2,7 @@ final works = [
   {
     'id': '0',
     'title': 'Electrician\'s',
-    'imageUrl': 'assets/images/elec.png',
+    'imageUrl': 'assets/images/electician.jpg',
   },
   {
     'id': '1',
@@ -12,11 +12,11 @@ final works = [
   {
     'id': '2',
     'title': 'Plumber\'s',
-    'imageUrl': 'assets/images/plum.png',
+    'imageUrl': 'assets/images/plumber.jpg',
   },
   {
     'id': '3',
     'title': 'Cleaner\'s',
-    'imageUrl': 'assets/images/cleaner.png',
+    'imageUrl': 'assets/images/cleaner.jpg',
   },
 ];
